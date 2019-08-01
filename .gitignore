@@ -1,4 +1,7 @@
 # folders
 /node_modules
 /const
+
+# files
 package-lock.json
+.env

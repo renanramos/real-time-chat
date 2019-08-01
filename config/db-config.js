@@ -1,18 +1,14 @@
-const credentials = require('../const/credentials')
+require('dotenv').config()
 const mongoose = require('mongoose')
 
-const _username = credentials.username
-const _password = credentials.password
-
-const _dbUrl = `mongodb://${_username}:${_password}@ds155665.mlab.com:55665/simple-chat`
+const url =  process.env.URL_MONGODB
 
 const _getConnection = () => {
-    return mongoose.connect(_dbUrl, {useNewUrlParser: true}, (err)=>{
+    return mongoose.connect(url, {useNewUrlParser: true}, (err)=>{
         console.log(`Connected! `, err)
     })
 }
 
 module.exports = {
-    dbUrl: _dbUrl,
     getConnection: _getConnection
 }
